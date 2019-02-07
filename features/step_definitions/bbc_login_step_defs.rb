@@ -89,3 +89,11 @@ end
 Then("I recieve an error saying that the username can only have valid credentials") do
   expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.username_must_have_valid_characters
 end
+
+Given("I  put a password that does not include a letter") do
+  @bbc_site.bbc_sign_in.enter_password(':""[=+£"\][')
+end
+
+Then("I recieve an error saying that password must include a letter") do
+  expect(@bbc_site.bbc_sign_in.error_message_two).to eql @bbc_site.bbc_sign_in.password_must_have_letter
+end

@@ -65,6 +65,14 @@ Feature: BBC Login
     When I try to log in
     Then I recieve an error saying that the username can only have valid credentials
 
+  Scenario: Inputting incoreect username and credentials shows an error
+    Given I access the bbc login page
+    And I put a username  that does not contain valid characters
+    And I  put a password that does not include a letter
+    When I try to log in
+    Then I recieve an error saying that password must include a letter
+
+
 
 
 
