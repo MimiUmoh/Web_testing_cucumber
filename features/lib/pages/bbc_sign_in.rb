@@ -2,7 +2,7 @@ require 'capybara/dsl'
 
 class BbcSignInPage
   include Capybara::DSL
-  attr_accessor :error, :error2, :password_no_match, :password_only_letters, :something_is_missing_message, :form_message_general, :username_too_short
+  attr_accessor :error, :error2, :password_no_match, :password_only_letters, :something_is_missing_message, :form_message_general, :username_too_short, :password_too_long, :username_too_long, :username_must_have_valid_characters
 
   LOGIN = 'https://account.bbc.com/signin'
   EMAIL = 'user-identifier-input'
@@ -20,9 +20,9 @@ class BbcSignInPage
     @something_is_missing_message = "Something's missing. Please check and try again."
     @form_message_general = "Sorry, those details don't match. Check you've typed them correctly."
     @username_too_short = "Sorry, that username's too short. It needs to be at least two characters."
-
-    
-
+    @password_too_long = "Sorry, that password is too long. It can't be more than 50 characters."
+    @username_too_long = "Sorry, that username's too long. It can't be more than 50 characters."
+    @username_must_have_valid_characters = "Usernames can only include... Letters, numbers and these characters: ?/|}{+=_-^~`%$#"
   end 
 
   def visit_homepage

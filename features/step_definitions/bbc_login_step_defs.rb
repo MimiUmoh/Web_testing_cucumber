@@ -66,3 +66,26 @@ Then("I recieve an error saying the username is too short") do
   expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.username_too_short
 end
 
+Given("I put a password that is more than fifty characters long") do
+  @bbc_site.bbc_sign_in.enter_password('ngghjkhsdjdhvwhhkgvdsvwhvdgvhVHBwjlvhWLHUVHlbhu5789hgg')
+end
+
+Then("I recieve an error saying that password cannot be more than fifty characters long") do
+  expect(@bbc_site.bbc_sign_in.error_message_two).to eql @bbc_site.bbc_sign_in.password_too_long
+end
+
+Given("I put a username  tha is more than fifty characters long") do
+  @bbc_site.bbc_sign_in.enter_username('vLDKLBkkdSEBHVBDJVSJDHVHHvdlwj%£JHHWBBHDWegvagggnggjgkmgg')
+end
+
+Then("I recieve an error saying that username cannot be more than fifty characters long") do
+  expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.username_too_long
+end
+
+Given("I put a username  that does not contain valid characters") do
+  @bbc_site.bbc_sign_in.enter_username('[frs;[pliho4')
+end
+
+Then("I recieve an error saying that the username can only have valid credentials") do
+  expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.username_must_have_valid_characters
+end
