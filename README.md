@@ -7,5 +7,5 @@ This is a page object model to run tests on the BBC log in web page using cucumb
 Ruby programming language, Rspec, cucumber.
 
 ###How to download 
-1. You have the option of downloading the SOM as a zip or git cloning it onto your terminal.
-2. Once you have done that, you can then open the application on a text editor such a vscode or atom to attempt some testing.
+1. You have the option of downloading the test-framweork as a zip or git cloning it onto your terminal.
+2. Once you have done that, you can then open the test-framework on a text editor such a vscode or atom to attempt some testing.
