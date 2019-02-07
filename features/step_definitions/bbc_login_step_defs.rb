@@ -1,22 +1,60 @@
-#copy and paste the code block for you, we are going ot use our POM ro run mehtods in here tointeract with the page. we will also use assertion libaries to check values.  
+#copy and paste the code block for you, we are going ot use our POM ro run mehtods in here tointeract with the page. we will also use assertion libaries to check values.   we are going to build a page object model around the bbc site.
 
 
 Given("I access the bbc login page") do
-  visit('http://www.bbc.co.uk')
+  @bbc_site = BbcSite.new 
+  @bbc_site.bbc_homepage.visit_homepage
+  @bbc_site.bbc_homepage.click_login
 end
 
 Given("I input incorrect username details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site.bbc_sign_in.enter_username('ememumoh@fil.com')
 end
 
 Given("I input incorrect password details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site.bbc_sign_in.enter_password('mimidbsfhdbfh1')
 end
 
 When("I try to log in") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+  @bbc_site.bbc_sign_in.log_in
+end 
 
 Then("I recieve an arror for not finding the account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.error
 end
+
+Given("I input incorrect short password details") do
+  @bbc_site.bbc_sign_in.enter_password('mdh')
+end
+
+Then("I recieve an error message passowrd too short") do
+  expect(@bbc_site.bbc_sign_in.error_message_two).to eql @bbc_site.bbc_sign_in.error2
+end
+
+Given("I input  password that only contain letters details") do
+  @bbc_site.bbc_sign_in.enter_password('abcdefghighhj') 
+end
+
+Then("I recieve an error messagge that says i need to include soemthing that is not a letter") do
+  expect(@bbc_site.bbc_sign_in.error_message_two).to eql @bbc_site.bbc_sign_in.password_only_letters
+  expect(@bbc_site.bbc_sign_in.error_message_two).to be_kind_of(String)
+end
+
+Given("I leave password empty") do
+  @bbc_site.bbc_sign_in.enter_password('')
+end
+
+Then("I recieve an error saying something is missing please try again") do
+  expect(@bbc_site.bbc_sign_in.error_message_two).to eql @bbc_site.bbc_sign_in.something_is_missing_message
+end
+
+Given("I leave username and email empty") do
+  @bbc_site.bbc_sign_in.enter_username('')
+end
+
+Then("I recieve an error saying something is missing please check and try again") do
+  expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.something_is_missing_message
+  expect(@bbc_site.bbc_sign_in.error_message_two).to eql @bbc_site.bbc_sign_in.something_is_missing_message
+  expect(@bbc_site.bbc_sign_in.general_form_message).to eql @bbc_site.bbc_sign_in.form_message_general
+end
+
