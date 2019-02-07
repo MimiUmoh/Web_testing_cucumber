@@ -58,3 +58,11 @@ Then("I recieve an error saying something is missing please check and try again"
   expect(@bbc_site.bbc_sign_in.general_form_message).to eql @bbc_site.bbc_sign_in.form_message_general
 end
 
+Given("I input one character for the user name") do
+  @bbc_site.bbc_sign_in.enter_username('1')
+end
+
+Then("I recieve an error saying the username is too short") do
+  expect(@bbc_site.bbc_sign_in.error_message).to eql @bbc_site.bbc_sign_in.username_too_short
+end
+
