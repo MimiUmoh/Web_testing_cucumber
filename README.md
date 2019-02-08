@@ -12,7 +12,7 @@ Ruby programming language, Rspec, cucumber.
 
 
 ### How to use the test Framework 
-1.)	One you open up the test-framework, make sure you download the necessary gems needed to make the framework run. Gems needed are rspec, capybara and selenium. To install these gems , run gem install ‘name of the gem’ on your terminal.
+1.)	One you open up the test-framework, make sure you download the necessary gems needed to make the framework run. Gems needed are rspec, capybara and selenium. To install these gems, run gem install ‘name of the gem’ on your terminal.
 2.)	Once you have done that you are ready to start writing some tests and testing the bbc  webpage.
 3.)	The bbc_login.feature is where you write your user case scenarios in gherkin syntax as suggested in the template. Once you have written, the gherkin syntax you run ‘cucumber’ on your terminal. 
 4.)	Once you do that, code blocks should be printed on your terminal. Copy and paste the code blocks to bbc_login_step_defs.rb where you run your tests.
