@@ -1,6 +1,5 @@
 #copy and paste the code block for you, we are going ot use our POM ro run mehtods in here tointeract with the page. we will also use assertion libaries to check values.   we are going to build a page object model around the bbc site.
 
-
 Given("I access the bbc login page") do
   @bbc_site = BbcSite.new 
   @bbc_site.bbc_homepage.visit_homepage

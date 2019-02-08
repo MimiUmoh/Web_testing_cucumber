@@ -42,7 +42,6 @@ Feature: BBC Login
     When I try to log in
     Then I recieve an error saying the username is too short
 
-
   Scenario: Inputting one character username and fifty character long password shows an error
     Given I access the bbc login page
     And I input one character for the user name
