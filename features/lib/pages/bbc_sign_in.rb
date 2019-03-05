@@ -1,0 +1,61 @@
+require 'capybara/dsl'
+
+class BbcSignInPage
+  include Capybara::DSL
+  attr_accessor :error, :error2, :password_no_match, :password_only_letters, :something_is_missing_message, :form_message_general, :username_too_short, :password_too_long, :username_too_long, :username_must_have_valid_characters, :password_must_have_letter
+
+  LOGIN = 'https://account.bbc.com/signin'
+  EMAIL = 'user-identifier-input'
+  PASSWORD = 'password-input'
+  LOG_IN = 'submit-button'
+  ERROR = 'form-message-username'
+  ERROR_2 = 'form-message-password'
+  FORM_MESSAGE = 'form-message-general'
+
+  def initialize
+    @error = 'Sorry, we can’t find an account with that email. You can register for a new account or get help here.'
+    @error2 = 'Sorry, that password is too short. It needs to be eight characters or more.'
+    @password_no_match = "Sorry, that password isn't valid, please include somthing that isn't a letter"
+    @password_only_letters = "Sorry, that password isn't valid. Please include something that isn't a letter."
+    @something_is_missing_message = "Something's missing. Please check and try again."
+    @form_message_general = "Sorry, those details don't match. Check you've typed them correctly."
+    @username_too_short = "Sorry, that username's too short. It needs to be at least two characters."
+    @password_too_long = "Sorry, that password is too long. It can't be more than 50 characters."
+    @username_too_long = "Sorry, that username's too long. It can't be more than 50 characters."
+    @username_must_have_valid_characters = "Usernames can only include... Letters, numbers and these characters: ?/|}{+=_-^~`%$#"
+    @password_must_have_letter = "Sorry, that password isn't valid. Please include a letter."
+  end 
+
+  def visit_homepage
+    visit(LOGIN_URL)
+  end 
+
+  def enter_username(email)
+    fill_in(EMAIL, :with => email)
+  end 
+
+  def enter_password(passowrd)
+    fill_in(PASSWORD, :with => passowrd)
+  end 
+
+  def log_in
+    find_button(LOG_IN).click
+  end 
+
+  def error_message
+    find(:id, ERROR).text 
+  end  
+
+  def short_password
+    fill_in(PASSWORD, :with => passowrd)
+  end 
+  
+  def error_message_two
+    find(:id,ERROR_2).text 
+  end 
+  
+  def general_form_message
+    find(:id,FORM_MESSAGE).text 
+  end 
+
+end 
