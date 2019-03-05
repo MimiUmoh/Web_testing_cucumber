@@ -18,5 +18,5 @@ Ruby programming language, Rspec, cucumber.
 4. Once you do that, code blocks should be printed on your terminal. Copy and paste the code blocks to bbc_login_step_defs.rb where you run your tests.
 5. Before you run your tests make sure you create your methods in the bbc_homepage.rb and bbc_sign_in.rb within their classes. Both of these classes can be found in a superclass in bbc_site.rb where you can add more class objects if you choose to create more pages.
 6. Your methods should be written in capybara. Once you have written them, you can them call them in your tests where you can also write rspec expectations assertions.
-7. Once you have created your tests, you type ‘cucumber on the terminal to see if your tests have passed or failed.
+7. Once you have created your tests, you type ‘cucumber' on the terminal to see if your tests have passed or failed.
 
