@@ -1,9 +1,9 @@
 # Web_testing_cucumber
 
-### Description 
+###Description 
 This is a page object model to run tests on the BBC log in web page using cucumber. Use case scenarios are written in the gherkin syntax and are then turned into code blocks to be executed a to test if the web page functions as it is supposed to. 
 
-### Languages used tools used 
+###Languages used tools used 
 Ruby programming language, Rspec, cucumber.
 
 ###How to download 
@@ -11,7 +11,7 @@ Ruby programming language, Rspec, cucumber.
 2. Once you have done that, you can then open the test-framework on a text editor such a vscode or atom to attempt some testing.
 
 
-### How to use the test Framework 
+###How to use the test Framework 
 1.)	One you open up the test-framework, make sure you download the necessary gems needed to make the framework run. Gems needed are rspec, capybara and selenium. To install these gems, run gem install ‘name of the gem’ on your terminal.
 2.)	Once you have done that you are ready to start writing some tests and testing the bbc  webpage.
 3.)	The bbc_login.feature is where you write your user case scenarios in gherkin syntax as suggested in the template. Once you have written, the gherkin syntax you run ‘cucumber’ on your terminal. 
